@@ -6,7 +6,7 @@
     <div class="main">
       <router-view/>
     </div>
-    <div class="panel-background">
+    <!--<div class="panel-background">
       <div class="close-button">
         <img class="close-button__icon" src="@/assets/close.svg" alt=""/>
       </div>
@@ -14,6 +14,7 @@
         <router-view name="panel"/>
       </div>
     </div>
+    -->
   </div>
 </template>
 
