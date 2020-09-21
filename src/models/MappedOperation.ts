@@ -17,6 +17,8 @@ export default class MappedOperation extends Operation{
     this.stringDate = dateToString(operation.date);
     this.crop = 'Пшеница озимая';
     this.stringType = lang(OperationType[operation.type]);
-    this.stringAssessment = typeof operation.assessment === 'number' ? lang(Assessment[operation.assessment]) : 'Нет оценки';
+    this.stringAssessment = typeof operation.assessment === 'number'
+      ? lang(Assessment[operation.assessment])
+      : 'Нет оценки';
   }
 }

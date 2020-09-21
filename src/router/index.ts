@@ -7,8 +7,16 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Operations',
+    name: 'operations',
     component: OperationsPage,
+  },
+  {
+    path: '/operation/:id',
+    name: 'edit',
+    components: {
+      default: OperationsPage,
+      panel: () => import('@/pages/PanelPage.vue'),
+    },
   },
 ];
 
