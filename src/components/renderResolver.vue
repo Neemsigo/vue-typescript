@@ -8,7 +8,6 @@ export default {
     },
   },
   render(h, context) {
-    console.log(this, 'this')
     return context.props.value(h);
   },
 };

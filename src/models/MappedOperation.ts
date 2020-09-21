@@ -2,18 +2,21 @@ import Operation, { Assessment, OperationType } from "@/models/Operation";
 import dateToString from "@/utils/dateToString";
 import lang from "@/lang";
 
-export default class MappedOperation {
-  id?: string | null;              // ID Операции
-  type: string;                    // Тип операции
-  date: string;                    // Дата проведения операции
+export enum ColorType {
+  green, yellow, red,
+}
+
+export default class MappedOperation extends Operation{
+  stringType: string;              // Тип операции
+  stringDate: string;              // Дата проведения операции в виде строки
   crop: string;                    // Тип note: отсутствует в исходных данных
-  assessment?: string | null;      // Оценка качества проведенной операции
+  stringAssessment?: string;       // Оценка качества проведенной операции
 
   constructor(operation: Operation) {
-    this.id = operation.id;
-    this.date = dateToString(operation.date);
+    super(operation);
+    this.stringDate = dateToString(operation.date);
     this.crop = 'Пшеница озимая';
-    this.type = lang(OperationType[operation.type]);
-    this.assessment = operation.assessment ? lang(Assessment[operation.assessment]) : 'Нет оценки';
+    this.stringType = lang(OperationType[operation.type]);
+    this.stringAssessment = typeof operation.assessment === 'number' ? lang(Assessment[operation.assessment]) : 'Нет оценки';
   }
 }
